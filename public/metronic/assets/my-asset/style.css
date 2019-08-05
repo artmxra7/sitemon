@@ -1,0 +1,17 @@
+#toast-container > div {
+    opacity: 1;
+}
+.toast-message > p:first-child {
+    margin-top: 1em;
+}
+.toast-message > p {
+    margin: .5em 0;
+}
+
+table .numbering {
+    width: 30px !important;
+}
+
+table .action {
+    width: 150px !important;
+}
