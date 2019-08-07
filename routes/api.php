@@ -17,6 +17,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function () {
+
+
+    Route::get('/profile', 'Api\Users\UsersController@getProfile')->name('user.detail');
+
+    Route::post('/logout', 'Api\AuthController@logout')->name('user.logout');
+});
+
 
 
 Route::get('/pelanggan', 'Api\DataPelangganController@getDataPelanggan');
