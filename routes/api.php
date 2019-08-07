@@ -17,5 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+
 Route::get('/pelanggan', 'Api\DataPelangganController@getDataPelanggan');
 Route::post('/pelanggan', 'Api\DataPelangganController@createDataPelanggan');
+
+
+Route::post('auth/login', 'Api\AuthController@login');
