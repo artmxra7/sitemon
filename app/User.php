@@ -6,10 +6,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable,HasApiTokens;
+    use HasRoles;
     public $timestamps = false;
 
     protected $table = 'users';
@@ -20,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'users_name', 'users_email', 'users_password', 'users_last_login_at', 'users_last_login_ip'
+        'name', 'email', 'password', 'users_last_login_at', 'users_last_login_ip', 'is_dashboard', 'isActive', 'users_code'
     ];
 
     /**
@@ -39,5 +41,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+    ];
+
+    protected $attributes = [
+        'is_dashboard' => 1,
     ];
 }
